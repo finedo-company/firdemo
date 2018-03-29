@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.finedo.dao.mapper.UserMapper">
+	<resultMap id="UserMapperID" type="com.finedo.domain.User">
+		<result column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="phone" property="phone"/>      
+		<result column="sex" property="sex"/>
+	</resultMap>
+	<select id="getUserById" parameterType="string" resultType="com.finedo.domain.User" resultMap="UserMapperID">
+		select id,
+			   name,
+			   sex,
+			   phone
+		       from tb_fir_user where id = #{id}
+	</select>
+
+</mapper>
